@@ -4,6 +4,10 @@ import subprocess
 import shutil
 from SolO.sourcegen import UnParse, Optimizer
 from solidity_parser import parser
+from .compare_gas import *
+
+# make the home path as the current directory
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
 def get_unoptimized_contracts():
@@ -13,7 +17,7 @@ def get_unoptimized_contracts():
     """
     codes = []
     # walk through the folder
-    for root, dirs, files in os.walk("./contracts/unOptimized_contracts"):
+    for root, dirs, files in os.walk("../contracts/unOptimized_contracts"):
         for file in files:
             if file.endswith(".sol"):
                 # print(os.path.join(root, file))
@@ -48,16 +52,17 @@ def optimize_contract(contract):
     return Optimizer(contract).ast
 
 
-def compare_gas(contract1, contract2):
+def _compare_gas(contract1, contract2):
     """
     Compare the gas of two contracts
     :param contract1:
     :param contract2:
     :return:
     """
-    os.system("cd SolOLab")
-    subprocess.run(['node', 'compare_gas.js', 'compare', contract1, contract2])
-    os.system("cd ..")
+    contract1_name = os.path.basename(contract1)
+    contract2_name = os.path.basename(contract2)
+    return compare_gas(contract1, contract2,
+                       contract1_name.replace('.sol', ''), contract2_name.replace('.sol', ''))
 
 
 def main():
@@ -75,7 +80,7 @@ def main():
     unparsed_contracts = [unparse_contract(contract) for contract in optimized_contracts]
     # write the contracts to optimized folder contracts/optimized_contracts
     for i in range(len(contracts)):
-        optimized_contract_path = os.path.join("./contracts/optimized_contracts/", os.path.basename(contracts[i]))
+        optimized_contract_path = os.path.join("../contracts/optimized_contracts/", "Opt_" + os.path.basename(contracts[i]))
         try:
             with open(optimized_contract_path, "w") as f:
                 print(unparsed_contracts[i])
@@ -85,7 +90,7 @@ def main():
 
     # compare the gas of the contracts
     for i in range(len(contracts)):
-        if compare_gas(contracts[i], os.path.join("./contracts/optimized_contracts/", os.path.basename(contracts[i]))):
+        if _compare_gas(contracts[i], os.path.join("../contracts/optimized_contracts/", "Opt_" + os.path.basename(contracts[i]))):
             print(f"Contract {contracts[i]} is optimized")
         else:
             print(f"Contract {contracts[i]} is not optimized")
