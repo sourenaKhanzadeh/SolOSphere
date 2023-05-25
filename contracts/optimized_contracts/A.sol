@@ -1,15 +1,16 @@
+pragma solidity ^0.8.0;
 contract A {
-    string public res = 'A';
+    int public res = 23;
 	constructor()  {
         	}
-	function foo() external pure returns (string) {
-        return 'A';
+	function foo() external pure returns (int) {
+        return 10;
 	}
-	function bar() external pure returns (string) {
-        return 'A';
+	function bar() external pure returns (int) {
+        return 20;
 	}
-	function fooBar() external returns (string) {
-        string  res_ = res;
+	function fooBar() external returns (int) {
+        int  res_ = res;
         for (uint  i = 0;
 i < 100; ++i) {
             res_ += foo();

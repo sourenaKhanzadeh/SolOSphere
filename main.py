@@ -1,5 +1,6 @@
 import sys
 import os
+import subprocess
 import shutil
 from SolO.sourcegen import UnParse, Optimizer
 from solidity_parser import parser
@@ -47,6 +48,18 @@ def optimize_contract(contract):
     return Optimizer(contract).ast
 
 
+def compare_gas(contract1, contract2):
+    """
+    Compare the gas of two contracts
+    :param contract1:
+    :param contract2:
+    :return:
+    """
+    os.system("cd SolOLab")
+    subprocess.run(['node', 'compare_gas.js', 'compare', contract1, contract2])
+    os.system("cd ..")
+
+
 def main():
     """
     Main function
@@ -70,7 +83,12 @@ def main():
         except Exception as e:
             print(f"Error writing contract: {str(e)}")
 
-
+    # compare the gas of the contracts
+    for i in range(len(contracts)):
+        if compare_gas(contracts[i], os.path.join("./contracts/optimized_contracts/", os.path.basename(contracts[i]))):
+            print(f"Contract {contracts[i]} is optimized")
+        else:
+            print(f"Contract {contracts[i]} is not optimized")
 
 
 if __name__ == "__main__":

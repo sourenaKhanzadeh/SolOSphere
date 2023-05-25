@@ -2,22 +2,22 @@
 pragma solidity ^0.8.0;
 
 contract A {
-    string public res;
+    int public res;
 
     constructor(){
         // do something
-        res = "A";
+        res = 23;
     }
 
-    function foo() public pure returns(string memory){
-        return "A";
+    function foo() public pure returns(int){
+        return 10;
     }
 
-    function bar() public pure returns(string memory){
-        return "A";
+    function bar() public pure returns(int){
+        return 20;
     }
 
-    function fooBar() public returns(string memory){
+    function fooBar() public returns(int){
         for(uint i=0; i<100; i++){
             res += foo();
             res += bar();
