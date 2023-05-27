@@ -1,0 +1,15 @@
+pragma solidity ^0.6.0;
+
+contract loops96 {
+    uint public counter;
+
+    constructor() public {
+        counter = 0;
+    }
+
+    function loop() public {
+        for (uint i = 0; i < 96; i++) {
+            counter++;
+        }
+    }
+}

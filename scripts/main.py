@@ -2,6 +2,8 @@ import sys
 import os
 import subprocess
 import shutil
+import threading
+import time
 from SolO.sourcegen import UnParse, Optimizer
 from solidity_parser import parser
 from .compare_gas import *
@@ -90,10 +92,18 @@ def main():
 
     # compare the gas of the contracts
     for i in range(len(contracts)):
-        if _compare_gas(contracts[i], os.path.join("../contracts/optimized_contracts/", "Opt_" + os.path.basename(contracts[i]))):
-            print(f"Contract {contracts[i]} is optimized")
-        else:
-            print(f"Contract {contracts[i]} is not optimized")
+        print(f"Comparing gas of {contracts[i]} and {os.path.join('../contracts/optimized_contracts/', 'Opt_' + os.path.basename(contracts[i]))}")
+        try:
+            threading.Thread(target=_compare_gas, args=(contracts[i], os.path.join("../contracts/optimized_contracts/", "Opt_" + os.path.basename(contracts[i])))).start()
+        except Exception as e:
+            print(f"Error comparing gas: {str(e)}")
+        time.sleep(1)
+        print("Done")
+
+        # if _compare_gas(contracts[i], os.path.join("../contracts/optimized_contracts/", "Opt_" + os.path.basename(contracts[i]))):
+        #     print(f"Contract {contracts[i]} is optimized")
+        # else:
+        #     print(f"Contract {contracts[i]} is not optimized")
 
 
 if __name__ == "__main__":

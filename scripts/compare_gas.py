@@ -21,8 +21,17 @@ def compare_gas(contract1_source, contract2_source, name1, name2):
     with open(contract2_source, 'r') as f:
         source_code2 = f.read()
 
-    contract1_interface = compile_source(source_code1)
-    contract2_interface = compile_source(source_code2)
+    try:
+        contract1_interface = compile_source(source_code1)
+    except Exception as e:
+        print(f"Skipping contract1 {name1} due to compilation error: {e}")
+        return False
+
+    try:
+        contract2_interface = compile_source(source_code2)
+    except Exception as e:
+        print(f"Skipping contract2 {name2} due to compilation error: {e}")
+        return False
 
     contract1 = contract1_interface[name1]
     contract2 = contract2_interface[name2]
@@ -57,7 +66,6 @@ def compare_gas(contract1_source, contract2_source, name1, name2):
                     # This will skip the function if it's not possible to estimate gas,
                     # for example if the function has required parameters.
                     print(f"Couldn't estimate gas for {func['name']}: {e}")
-
 
 
     return deployed_contract1.tx.gas_used < deployed_contract2.tx.gas_used

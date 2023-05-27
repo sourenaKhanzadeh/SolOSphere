@@ -1,0 +1,1695 @@
+{
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "count",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "decrement",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "increment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_count",
+          "type": "uint256"
+        }
+      ],
+      "name": "setCount",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "84": "contracts/unOptimized_contracts/UnOptimizedContract111.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/unOptimized_contracts/UnOptimizedContract111.sol",
+    "exportedSymbols": {
+      "unOptimizedContract111": [
+        2860
+      ]
+    },
+    "id": 2861,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2825,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:84"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 2860,
+        "linearizedBaseContracts": [
+          2860
+        ],
+        "name": "unOptimizedContract111",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 2827,
+            "name": "count",
+            "nodeType": "VariableDeclaration",
+            "scope": 2860,
+            "src": "63:17:84",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 2826,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "63:4:84",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2833,
+              "nodeType": "Block",
+              "src": "115:24:84",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2831,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "++",
+                    "prefix": false,
+                    "src": "125:7:84",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 2830,
+                      "name": "count",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2827,
+                      "src": "125:5:84",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2832,
+                  "nodeType": "ExpressionStatement",
+                  "src": "125:7:84"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2834,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "increment",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2828,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "105:2:84"
+            },
+            "returnParameters": {
+              "id": 2829,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "115:0:84"
+            },
+            "scope": 2860,
+            "src": "87:52:84",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2840,
+              "nodeType": "Block",
+              "src": "173:24:84",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2838,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "--",
+                    "prefix": false,
+                    "src": "183:7:84",
+                    "subExpression": {
+                      "argumentTypes": null,
+                      "id": 2837,
+                      "name": "count",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2827,
+                      "src": "183:5:84",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2839,
+                  "nodeType": "ExpressionStatement",
+                  "src": "183:7:84"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2841,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "decrement",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2835,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "163:2:84"
+            },
+            "returnParameters": {
+              "id": 2836,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "173:0:84"
+            },
+            "scope": 2860,
+            "src": "145:52:84",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2850,
+              "nodeType": "Block",
+              "src": "241:31:84",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2848,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 2846,
+                      "name": "count",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2827,
+                      "src": "251:5:84",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 2847,
+                      "name": "_count",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2843,
+                      "src": "259:6:84",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "251:14:84",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 2849,
+                  "nodeType": "ExpressionStatement",
+                  "src": "251:14:84"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2851,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setCount",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2844,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2843,
+                  "name": "_count",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2851,
+                  "src": "221:11:84",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2842,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "221:4:84",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "220:13:84"
+            },
+            "returnParameters": {
+              "id": 2845,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "241:0:84"
+            },
+            "scope": 2860,
+            "src": "203:69:84",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2858,
+              "nodeType": "Block",
+              "src": "325:29:84",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 2856,
+                    "name": "count",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2827,
+                    "src": "342:5:84",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 2855,
+                  "id": 2857,
+                  "nodeType": "Return",
+                  "src": "335:12:84"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 2859,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCount",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2852,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "295:2:84"
+            },
+            "returnParameters": {
+              "id": 2855,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2854,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2859,
+                  "src": "319:4:84",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 2853,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "319:4:84",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "318:6:84"
+            },
+            "scope": 2860,
+            "src": "278:76:84",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 2861,
+        "src": "25:331:84"
+      }
+    ],
+    "src": "0:356:84"
+  },
+  "bytecode": "608060405234801561001057600080fd5b5060f88061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060505760003560e01c806306661abd1460555780632baeceb714606d578063a87d942c146075578063d09de08a14607b578063d14e62b8146081575b600080fd5b605b609b565b60408051918252519081900360200190f35b607360a1565b005b605b60ad565b607360b3565b607360048036036020811015609557600080fd5b503560be565b60005481565b60008054600019019055565b60005490565b600080546001019055565b60005556fea265627a7a72315820cf6040e336c40d34ca700fc55c322732a4f80ab64ec2a3220edc7d0b5112d5b664736f6c63430005110032",
+  "bytecodeSha1": "2704b95c003c823b9987905ef4ca15b4d8ce58d1",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.5.17+commit.d19bba13"
+  },
+  "contractName": "unOptimizedContract111",
+  "coverageMap": {
+    "branches": {
+      "84": {}
+    },
+    "statements": {
+      "84": {
+        "unOptimizedContract111.decrement": {
+          "0": [
+            183,
+            190
+          ]
+        },
+        "unOptimizedContract111.getCount": {
+          "1": [
+            335,
+            347
+          ]
+        },
+        "unOptimizedContract111.increment": {
+          "2": [
+            125,
+            132
+          ]
+        },
+        "unOptimizedContract111.setCount": {
+          "3": [
+            251,
+            265
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "6080604052348015600f57600080fd5b506004361060505760003560e01c806306661abd1460555780632baeceb714606d578063a87d942c146075578063d09de08a14607b578063d14e62b8146081575b600080fd5b605b609b565b60408051918252519081900360200190f35b607360a1565b005b605b60ad565b607360b3565b607360048036036020811015609557600080fd5b503560be565b60005481565b60008054600019019055565b60005490565b600080546001019055565b60005556fea265627a7a72315820cf6040e336c40d34ca700fc55c322732a4f80ab64ec2a3220edc7d0b5112d5b664736f6c63430005110032",
+  "deployedSourceMap": "25:331:84:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:331:84;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;63:17;;;:::i;:::-;;;;;;;;;;;;;;;;145:52;;;:::i;:::-;;278:76;;;:::i;87:52::-;;;:::i;203:69::-;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;203:69:84;;:::i;63:17::-;;;;:::o;145:52::-;183:5;:7;;-1:-1:-1;;183:7:84;;;145:52::o;278:76::-;319:4;342:5;278:76;:::o;87:52::-;125:5;:7;;;;;;87:52::o;203:69::-;251:5;:14;203:69::o",
+  "language": "Solidity",
+  "natspec": {
+    "methods": {}
+  },
+  "offset": [
+    25,
+    356
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x50 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x6661ABD EQ PUSH1 0x55 JUMPI DUP1 PUSH4 0x2BAECEB7 EQ PUSH1 0x6D JUMPI DUP1 PUSH4 0xA87D942C EQ PUSH1 0x75 JUMPI DUP1 PUSH4 0xD09DE08A EQ PUSH1 0x7B JUMPI DUP1 PUSH4 0xD14E62B8 EQ PUSH1 0x81 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x5B PUSH1 0x9B JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP2 DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH1 0x73 PUSH1 0xA1 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x5B PUSH1 0xAD JUMP JUMPDEST PUSH1 0x73 PUSH1 0xB3 JUMP JUMPDEST PUSH1 0x73 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH1 0x95 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP CALLDATALOAD PUSH1 0xBE JUMP JUMPDEST PUSH1 0x0 SLOAD DUP2 JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x0 NOT ADD SWAP1 SSTORE JUMP JUMPDEST PUSH1 0x0 SLOAD SWAP1 JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 ADD SWAP1 SSTORE JUMP JUMPDEST PUSH1 0x0 SSTORE JUMP INVALID LOG2 PUSH6 0x627A7A723158 KECCAK256 0xCF PUSH1 0x40 0xE3 CALLDATASIZE 0xC4 0xD CALLVALUE 0xCA PUSH17 0xFC55C322732A4F80AB64EC2A3220EDC7D SIGNEXTEND MLOAD SLT 0xD5 0xB6 PUSH5 0x736F6C6343 STOP SDIV GT STOP ORIGIN ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "MSTORE",
+      "path": "84"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "CALLVALUE",
+      "path": "84"
+    },
+    "6": {
+      "op": "DUP1"
+    },
+    "7": {
+      "op": "ISZERO"
+    },
+    "8": {
+      "op": "PUSH1",
+      "value": "0xF"
+    },
+    "10": {
+      "op": "JUMPI"
+    },
+    "11": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "13": {
+      "op": "DUP1"
+    },
+    "14": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "REVERT",
+      "path": "84"
+    },
+    "15": {
+      "op": "JUMPDEST"
+    },
+    "16": {
+      "offset": [
+        25,
+        356
+      ],
+      "op": "POP",
+      "path": "84"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x4"
+    },
+    "19": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "CALLDATASIZE",
+      "path": "84"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "LT",
+      "path": "84"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x50"
+    },
+    "23": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "JUMPI",
+      "path": "84"
+    },
+    "24": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x0"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "CALLDATALOAD",
+      "path": "84"
+    },
+    "27": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0xE0"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "SHR",
+      "path": "84"
+    },
+    "30": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH4",
+      "path": "84",
+      "value": "0x6661ABD"
+    },
+    "36": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "EQ",
+      "path": "84"
+    },
+    "37": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x55"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "JUMPI",
+      "path": "84"
+    },
+    "40": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "41": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH4",
+      "path": "84",
+      "value": "0x2BAECEB7"
+    },
+    "46": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "EQ",
+      "path": "84"
+    },
+    "47": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x6D"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "JUMPI",
+      "path": "84"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "51": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH4",
+      "path": "84",
+      "value": "0xA87D942C"
+    },
+    "56": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "EQ",
+      "path": "84"
+    },
+    "57": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x75"
+    },
+    "59": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "JUMPI",
+      "path": "84"
+    },
+    "60": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "61": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH4",
+      "path": "84",
+      "value": "0xD09DE08A"
+    },
+    "66": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "EQ",
+      "path": "84"
+    },
+    "67": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x7B"
+    },
+    "69": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "JUMPI",
+      "path": "84"
+    },
+    "70": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "71": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH4",
+      "path": "84",
+      "value": "0xD14E62B8"
+    },
+    "76": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "EQ",
+      "path": "84"
+    },
+    "77": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x81"
+    },
+    "79": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "JUMPI",
+      "path": "84"
+    },
+    "80": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "81": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x0"
+    },
+    "83": {
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "84": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        25,
+        356
+      ],
+      "op": "REVERT",
+      "path": "84"
+    },
+    "85": {
+      "offset": [
+        63,
+        80
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "86": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x5B"
+    },
+    "88": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x9B"
+    },
+    "90": {
+      "fn": null,
+      "jump": "i",
+      "offset": [
+        63,
+        80
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "91": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "92": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x40"
+    },
+    "94": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "95": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "MLOAD",
+      "path": "84"
+    },
+    "96": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "SWAP2",
+      "path": "84"
+    },
+    "97": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "DUP3",
+      "path": "84"
+    },
+    "98": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "MSTORE",
+      "path": "84"
+    },
+    "99": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "MLOAD",
+      "path": "84"
+    },
+    "100": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "SWAP1",
+      "path": "84"
+    },
+    "101": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "DUP2",
+      "path": "84"
+    },
+    "102": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "SWAP1",
+      "path": "84"
+    },
+    "103": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "SUB",
+      "path": "84"
+    },
+    "104": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x20"
+    },
+    "106": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "ADD",
+      "path": "84"
+    },
+    "107": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "SWAP1",
+      "path": "84"
+    },
+    "108": {
+      "fn": null,
+      "offset": [
+        63,
+        80
+      ],
+      "op": "RETURN",
+      "path": "84"
+    },
+    "109": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        145,
+        197
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "110": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        145,
+        197
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x73"
+    },
+    "112": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        145,
+        197
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0xA1"
+    },
+    "114": {
+      "fn": "unOptimizedContract111.decrement",
+      "jump": "i",
+      "offset": [
+        145,
+        197
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "115": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        145,
+        197
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "116": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        145,
+        197
+      ],
+      "op": "STOP",
+      "path": "84"
+    },
+    "117": {
+      "fn": "unOptimizedContract111.getCount",
+      "offset": [
+        278,
+        354
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "118": {
+      "fn": "unOptimizedContract111.getCount",
+      "offset": [
+        278,
+        354
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x5B"
+    },
+    "120": {
+      "fn": "unOptimizedContract111.getCount",
+      "offset": [
+        278,
+        354
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0xAD"
+    },
+    "122": {
+      "fn": "unOptimizedContract111.getCount",
+      "jump": "i",
+      "offset": [
+        278,
+        354
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "123": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        87,
+        139
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "124": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        87,
+        139
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x73"
+    },
+    "126": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        87,
+        139
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0xB3"
+    },
+    "128": {
+      "fn": "unOptimizedContract111.increment",
+      "jump": "i",
+      "offset": [
+        87,
+        139
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "129": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "130": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x73"
+    },
+    "132": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x4"
+    },
+    "134": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "135": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "CALLDATASIZE",
+      "path": "84"
+    },
+    "136": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "SUB",
+      "path": "84"
+    },
+    "137": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "139": {
+      "op": "DUP2"
+    },
+    "140": {
+      "op": "LT"
+    },
+    "141": {
+      "op": "ISZERO"
+    },
+    "142": {
+      "op": "PUSH1",
+      "value": "0x95"
+    },
+    "144": {
+      "op": "JUMPI"
+    },
+    "145": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "147": {
+      "op": "DUP1"
+    },
+    "148": {
+      "op": "REVERT"
+    },
+    "149": {
+      "op": "JUMPDEST"
+    },
+    "150": {
+      "op": "POP"
+    },
+    "151": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "CALLDATALOAD",
+      "path": "84"
+    },
+    "152": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0xBE"
+    },
+    "154": {
+      "fn": "unOptimizedContract111.setCount",
+      "jump": "i",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "155": {
+      "offset": [
+        63,
+        80
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "156": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        63,
+        80
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x0"
+    },
+    "158": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        63,
+        80
+      ],
+      "op": "SLOAD",
+      "path": "84"
+    },
+    "159": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        63,
+        80
+      ],
+      "op": "DUP2",
+      "path": "84"
+    },
+    "160": {
+      "fn": "unOptimizedContract111.setCount",
+      "jump": "o",
+      "offset": [
+        63,
+        80
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "161": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        145,
+        197
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "162": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        183,
+        188
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "statement": 0,
+      "value": "0x0"
+    },
+    "164": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        183,
+        190
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "165": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        183,
+        190
+      ],
+      "op": "SLOAD",
+      "path": "84"
+    },
+    "166": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "168": {
+      "op": "NOT"
+    },
+    "169": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        183,
+        190
+      ],
+      "op": "ADD",
+      "path": "84"
+    },
+    "170": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        183,
+        190
+      ],
+      "op": "SWAP1",
+      "path": "84"
+    },
+    "171": {
+      "fn": "unOptimizedContract111.decrement",
+      "offset": [
+        183,
+        190
+      ],
+      "op": "SSTORE",
+      "path": "84"
+    },
+    "172": {
+      "fn": "unOptimizedContract111.decrement",
+      "jump": "o",
+      "offset": [
+        145,
+        197
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "173": {
+      "fn": "unOptimizedContract111.getCount",
+      "offset": [
+        278,
+        354
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "174": {
+      "fn": "unOptimizedContract111.getCount",
+      "offset": [
+        319,
+        323
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x0"
+    },
+    "176": {
+      "fn": "unOptimizedContract111.getCount",
+      "offset": [
+        342,
+        347
+      ],
+      "op": "SLOAD",
+      "path": "84",
+      "statement": 1
+    },
+    "177": {
+      "fn": "unOptimizedContract111.getCount",
+      "offset": [
+        278,
+        354
+      ],
+      "op": "SWAP1",
+      "path": "84"
+    },
+    "178": {
+      "fn": "unOptimizedContract111.getCount",
+      "jump": "o",
+      "offset": [
+        278,
+        354
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "179": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        87,
+        139
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "180": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        125,
+        130
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "statement": 2,
+      "value": "0x0"
+    },
+    "182": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        125,
+        132
+      ],
+      "op": "DUP1",
+      "path": "84"
+    },
+    "183": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        125,
+        132
+      ],
+      "op": "SLOAD",
+      "path": "84"
+    },
+    "184": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        125,
+        132
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "value": "0x1"
+    },
+    "186": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        125,
+        132
+      ],
+      "op": "ADD",
+      "path": "84"
+    },
+    "187": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        125,
+        132
+      ],
+      "op": "SWAP1",
+      "path": "84"
+    },
+    "188": {
+      "fn": "unOptimizedContract111.increment",
+      "offset": [
+        125,
+        132
+      ],
+      "op": "SSTORE",
+      "path": "84"
+    },
+    "189": {
+      "fn": "unOptimizedContract111.increment",
+      "jump": "o",
+      "offset": [
+        87,
+        139
+      ],
+      "op": "JUMP",
+      "path": "84"
+    },
+    "190": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "JUMPDEST",
+      "path": "84"
+    },
+    "191": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        251,
+        256
+      ],
+      "op": "PUSH1",
+      "path": "84",
+      "statement": 3,
+      "value": "0x0"
+    },
+    "193": {
+      "fn": "unOptimizedContract111.setCount",
+      "offset": [
+        251,
+        265
+      ],
+      "op": "SSTORE",
+      "path": "84"
+    },
+    "194": {
+      "fn": "unOptimizedContract111.setCount",
+      "jump": "o",
+      "offset": [
+        203,
+        272
+      ],
+      "op": "JUMP",
+      "path": "84"
+    }
+  },
+  "sha1": "a5be32a85fb3024b352d1228da9533d7074ecf14",
+  "source": "pragma solidity ^0.5.0;\n\ncontract unOptimizedContract111 {\n    uint public count;\n\n    function increment() public {\n        count++;\n    }\n\n    function decrement() public {\n        count--;\n    }\n\n    function setCount(uint _count) public {\n        count = _count;\n    }\n\n    function getCount() public view returns (uint) {\n        return count;\n    }\n}",
+  "sourceMap": "25:331:84:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:331:84;;;;;;;",
+  "sourcePath": "contracts/unOptimized_contracts/UnOptimizedContract111.sol",
+  "type": "contract"
+}
