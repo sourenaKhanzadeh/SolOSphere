@@ -41,6 +41,7 @@ def compare_gas(contract1_source, contract2_source, name1, name2):
     deployed_contract1 = deploy_contract(contract1, deployer)
     deployed_contract2 = deploy_contract(contract2, deployer)
 
+    table = {'contract1': {'name': name1, 'gas': deployed_contract1.tx.gas_used}, 'contract2': {'name': name2, 'gas': deployed_contract2.tx.gas_used}}
     print(f'Contract1 {name1} deployment gas used:', deployed_contract1.tx.gas_used)
     print(f'Contract2 {name2} deployment gas used:', deployed_contract2.tx.gas_used)
 
@@ -62,11 +63,17 @@ def compare_gas(contract1_source, contract2_source, name1, name2):
                     estimate2 = function2.estimate_gas(tx)
 
                     print(f'Function {func["name"]} gas usage: Contract1: {name1} - {estimate1}, Contract2: {name2} - {estimate2}')
+                    # save the gas usage in the table
+                    table[func['name']] = {'contract1': estimate1, 'contract2': estimate2}
                 except Exception as e:
                     # This will skip the function if it's not possible to estimate gas,
                     # for example if the function has required parameters.
                     print(f"Couldn't estimate gas for {func['name']}: {e}")
 
+    # save the table to a file
+    with open('gas_table.txt', 'a+') as f:
+        f.write(str(table))
+        f.write('\n')
 
     return deployed_contract1.tx.gas_used < deployed_contract2.tx.gas_used
 
