@@ -2,6 +2,7 @@ import os
 import sys
 import threading
 import time
+import shutil
 import logging
 from SolO.sourcegen import UnParse, Optimizer
 from solidity_parser import parser
@@ -40,14 +41,14 @@ logger.addHandler(fh)
 # else do nothing
 
 
-def get_contracts():
+def get_contracts(path="./github_contracts"):
     """
     Get the contracts
     :return:
     """
     codes = []
     # walk through the folder
-    for root, dirs, files in os.walk("./github_contracts"):
+    for root, dirs, files in os.walk(path):
         for file in files:
             if file.endswith(".sol"):
                 # print(os.path.join(root, file))
@@ -92,12 +93,19 @@ def verify_contract(contract):
         logger.debug("Verified contract: {}".format(contract))
         ast = parse_contract(contract)
         ast = optimize_contract(ast)
-        # unparse_contract(ast)
-        print(unparse_contract(ast))
+        unparse_contract(ast)
+        if not os.path.exists("./github_contracts/verified_contracts"):
+            os.makedirs("./github_contracts/verified_contracts")
+        shutil.copy(contract, "./github_contracts/verified_contracts")
     except Exception as e:
         logger.error("Error in contract: {}".format(contract))
         logger.error(e)
-        raise e
+        if not os.path.exists("./github_contracts/error_contracts"):
+            os.makedirs("./github_contracts/error_contracts")
+        # if the contract is already in the error_contracts folder
+        # then do not copy it again
+        if not os.path.exists("./github_contracts/error_contracts/{}".format(os.path.basename(contract))):
+            shutil.copy(contract, "./github_contracts/error_contracts")
 
 
 def main_t():
