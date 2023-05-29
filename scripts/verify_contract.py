@@ -10,7 +10,7 @@ def main():
     # read from gpt_contracts folder
     codes = []
     # walk through the folder
-    for root, dirs, files in os.walk("./gpt_contracts_2"):
+    for root, dirs, files in os.walk("./custom_contracts"):
         for file in files:
             if file.endswith(".sol"):
                 # print(os.path.join(root, file))
