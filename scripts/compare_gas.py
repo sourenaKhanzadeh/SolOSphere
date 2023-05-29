@@ -7,6 +7,7 @@ accounts.add(os.getenv('PRIVATE_KEY'))
 
 # connect to the ganache-cli
 # network.connect('development')
+gas_table_file = 'complex_table.txt'
 
 
 def deploy_contract(contract, account):
@@ -73,7 +74,7 @@ def compare_gas(contract1_source, contract2_source, name1, name2):
                             print(f"Couldn't estimate gas for {func['name']}: {e}")
 
     # save the table to a file
-    with open('gas_table.txt', 'a+') as f:
+    with open(gas_table_file, 'a+') as f:
         f.write(str(table))
         f.write('\n')
 

@@ -139,7 +139,7 @@ def main():
     :return:
     """
     # get the contracts
-    contracts = get_contracts()
+    contracts = get_contracts("gpt_contracts_2")
     print("Number of contracts: {}".format(len(contracts)))
 
     for contract in contracts:
