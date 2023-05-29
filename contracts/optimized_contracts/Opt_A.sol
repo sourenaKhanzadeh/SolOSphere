@@ -12,7 +12,7 @@ contract Opt_A {
 	function fooBar() public returns (int) {
         int  res_ = res;
         for (uint  i = 0;
-i < 100; ++i) {
+i < 100; i++) {
             res_ += foo();
 res_ += bar();
         }
