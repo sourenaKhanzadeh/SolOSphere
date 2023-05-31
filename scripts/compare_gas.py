@@ -7,7 +7,7 @@ accounts.add(os.getenv('PRIVATE_KEY'))
 
 # connect to the ganache-cli
 # network.connect('development')
-gas_table_file = 'custom.txt'
+gas_table_file = '../data/custom.txt'
 
 
 def deploy_contract(contract, account):
