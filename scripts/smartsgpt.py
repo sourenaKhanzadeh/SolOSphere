@@ -21,16 +21,36 @@ def generate_solidity_contract(index):
     return response.choices[0].text.strip()
 
 
-folder = "gpt_contracts_2"
+def generate_mutated_contracts(file, index):
+    with open(file, 'r') as f:
+        source_code = f.read()
+    response = openai.Completion.create(
+        engine="text-davinci-003",  # use "text-davinci-003" for GPT-3
+        prompt=f"Mutate the contract in {source_code} and generate a Solidity contract named mutated{index}",
+        temperature=0.5,
+        max_tokens=1000
+    )
+
+    # The generated contract
+    return response.choices[0].text.strip()
+
+
+folder = "custom_contracts"
+MUTATE = True
+FILE_TO_MUTATE = os.path.join('custom_contracts', 'simple4.sol')
+
 
 # Generate 1000 unique .sol files
-for i in range(1, 2):
-    contract_code = generate_solidity_contract(i)
+for i in range(6, 51):
+    if MUTATE:
+        contract_code = generate_mutated_contracts(FILE_TO_MUTATE, i)
+    else:
+        contract_code = generate_solidity_contract(i)
 
     if not os.path.exists(folder):
         os.mkdir(folder)
 
     # Write the contract code to a .sol file
-    with open(f"{folder}/complex{i}.sol", "w") as file:
+    with open(f"{folder}/mutate{i}.sol", "w") as file:
         print("Writing contract to file... contract number: ", i)
         file.write(contract_code)
