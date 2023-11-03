@@ -1,6 +1,12 @@
 import requests
 from typing import Callable
 import argparse
+import os
+import dotenv
+import github
+
+
+dotenv.load_dotenv('../.env')
 
 
 def grab_code(url: str) -> str:
@@ -15,6 +21,23 @@ def save_code(grab: Callable[[str], str], url: str, path: str) -> None:
         f.write(code)
 
 
+def grab_folder(_id: int, url: str) -> list:
+    """Grab the codes recursively."""
+    g = github.Github(os.getenv('GITHUB_ACCESS_USERNAME'), os.getenv('GITHUB_ACCESS_PASSWORD'))
+    user = g.get_user_by_id(_id)
+    repos = user.get_repos()
+    for repo in repos:
+        # get the targeted repo
+        if repo.name == "solidity-nicad":
+            data = repo.get_contents("data/smart_contracts")
+            # save data in a folder named nicad_contracts
+            if not os.path.exists("../scripts/nicad_contracts"):
+                os.mkdir("../scripts/nicad_contracts")
+            for file in data:
+                # save the files in the folder
+                if file.name.endswith(".sol"):
+                    save_code(grab_code, file.download_url, "nicad_contracts/" + file.name)
+
 def command() -> None:
     """
     Command line interface for grab.py
@@ -25,6 +48,8 @@ def command() -> None:
     parser.add_argument('path', type=str, help='Path to save code to.')
     parser.add_argument('--grab', type=str, default='grab_code', help='Grab function to use.')
     args = parser.parse_args()
+    if args.grab == "grab_folder":
+        grab_folder(int(args.path), args.url)
     if args.grab:
         save_code(grab_code, args.url, args.path)
     else:
