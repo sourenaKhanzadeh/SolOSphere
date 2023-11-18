@@ -1,0 +1,645 @@
+digraph G {
+	rankdir=LR
+	subgraph cluster_0 {
+		node [color=white style=filled]
+		color=lightgrey rankdir=LR style=filled
+		Start
+		program [shape=circle]
+		"[sourceFile]" [color=yellow shape=circle]
+		program -> "[sourceFile]"
+		sourceFile [shape=circle]
+		"[sourceUnit*]" [color=yellow shape=circle]
+		sourceFile -> "[sourceUnit*]"
+		sourceUnit [shape=circle]
+		"[pragmaDirective] | [ImportDirective] | [ContractDefinition]" [color=yellow shape=circle]
+		sourceUnit -> "[pragmaDirective] | [ImportDirective] | [ContractDefinition]"
+		pragmaDirective [shape=circle]
+		"'pragma 'solidity [pragmaValue] ';" [color=yellow shape=circle]
+		pragmaDirective -> "'pragma 'solidity [pragmaValue] ';"
+		"|	'pragma 'experimental [pragmaValue] ';" [color=yellow shape=circle]
+		pragmaDirective -> "|	'pragma 'experimental [pragmaValue] ';"
+		pragmaValue [shape=circle]
+		"[repeat AttributeOrVersion]" [color=yellow shape=circle]
+		pragmaValue -> "[repeat AttributeOrVersion]"
+		AttributeOrVersion [shape=circle]
+		"[version]" [color=yellow shape=circle]
+		AttributeOrVersion -> "[version]"
+		"|	[PrimaryExpression]" [color=yellow shape=circle]
+		AttributeOrVersion -> "|	[PrimaryExpression]"
+		version [shape=circle]
+		"[versionConstraint]" [color=yellow shape=circle]
+		version -> "[versionConstraint]"
+		versionOperator [shape=circle]
+		"'^ | '~ | '>= | '> | '< | '<= | '=" [color=yellow shape=circle]
+		versionOperator -> "'^ | '~ | '>= | '> | '< | '<= | '="
+		versionConstraint [shape=circle]
+		"[opt versionOperator] [VersionLiteral]" [color=yellow shape=circle]
+		versionConstraint -> "[opt versionOperator] [VersionLiteral]"
+		VersionLiteral [shape=circle]
+		"[number+]" [color=yellow shape=circle]
+		VersionLiteral -> "[number+]"
+		ImportDirective [shape=circle]
+		"[ImportLine1]" [color=yellow shape=circle]
+		ImportDirective -> "[ImportLine1]"
+		"|   [ImportLine2]" [color=yellow shape=circle]
+		ImportDirective -> "|   [ImportLine2]"
+		"|   [ImportLine3]" [color=yellow shape=circle]
+		ImportDirective -> "|   [ImportLine3]"
+		ImportLine1 [shape=circle]
+		"'import [StringLiteral] [opt asIdentifier] ';" [color=yellow shape=circle]
+		ImportLine1 -> "'import [StringLiteral] [opt asIdentifier] ';"
+		ImportLine2 [shape=circle]
+		"'import [stericIdentifier] [opt OptionalIdentifer] 'from [StringLiteral] ';" [color=yellow shape=circle]
+		ImportLine2 -> "'import [stericIdentifier] [opt OptionalIdentifer] 'from [StringLiteral] ';"
+		ImportLine3 [shape=circle]
+		"'import '{ [IdOptAsIdentifier,+] '} 'from [StringLiteral] ';" [color=yellow shape=circle]
+		ImportLine3 -> "'import '{ [IdOptAsIdentifier,+] '} 'from [StringLiteral] ';"
+		IdOptAsIdentifier [shape=circle]
+		"[id] [opt asIdentifier]" [color=yellow shape=circle]
+		IdOptAsIdentifier -> "[id] [opt asIdentifier]"
+		asIdentifier [shape=circle]
+		"'as [id]" [color=yellow shape=circle]
+		asIdentifier -> "'as [id]"
+		stericIdentifier [shape=circle]
+		"'* | [id]" [color=yellow shape=circle]
+		stericIdentifier -> "'* | [id]"
+		OptionalIdentifer [shape=circle]
+		"'as [id]" [color=yellow shape=circle]
+		OptionalIdentifer -> "'as [id]"
+		ContractDefinition [shape=circle]
+		"[ContractKeywords] [id] [opt IsInheritenceSpecifier]" [color=yellow shape=circle]
+		ContractDefinition -> "[ContractKeywords] [id] [opt IsInheritenceSpecifier]"
+		"'{ [NL][IN]" [color=yellow shape=circle]
+		ContractDefinition -> "'{ [NL][IN]"
+		"[ContractBody*] [EX]" [color=yellow shape=circle]
+		ContractDefinition -> "[ContractBody*] [EX]"
+		"'} [NL]" [color=yellow shape=circle]
+		ContractDefinition -> "'} [NL]"
+		ContractKeywords [shape=circle]
+		"'contract | 'library | 'interface" [color=yellow shape=circle]
+		ContractKeywords -> "'contract | 'library | 'interface"
+		IsInheritenceSpecifier [shape=circle]
+		"'is [InheritanceSpecifier,+]" [color=yellow shape=circle]
+		IsInheritenceSpecifier -> "'is [InheritanceSpecifier,+]"
+		InheritanceSpecifier [shape=circle]
+		"[UserDefinedTypeName] [opt InternalInheritenceSpecifier]" [color=yellow shape=circle]
+		InheritanceSpecifier -> "[UserDefinedTypeName] [opt InternalInheritenceSpecifier]"
+		InternalInheritenceSpecifier [shape=circle]
+		"'( [Expression,] ')" [color=yellow shape=circle]
+		InternalInheritenceSpecifier -> "'( [Expression,] ')"
+		UserDefinedTypeName [shape=circle]
+		"[id] [IdWithDot*]" [color=yellow shape=circle]
+		UserDefinedTypeName -> "[id] [IdWithDot*]"
+		IdWithDot [shape=circle]
+		"'. [id]" [color=yellow shape=circle]
+		IdWithDot -> "'. [id]"
+		Expression [shape=circle]
+		"[PrimaryExpression]" [color=yellow shape=circle]
+		Expression -> "[PrimaryExpression]"
+		"|   [ExpressionPostIncrement]" [color=yellow shape=circle]
+		Expression -> "|   [ExpressionPostIncrement]"
+		"|  [NewExpression]" [color=yellow shape=circle]
+		Expression -> "|  [NewExpression]"
+		"|  [IndexAccess]" [color=yellow shape=circle]
+		Expression -> "|  [IndexAccess]"
+		"|  [MemberAccess]" [color=yellow shape=circle]
+		Expression -> "|  [MemberAccess]"
+		"|  [FunctionCall]" [color=yellow shape=circle]
+		Expression -> "|  [FunctionCall]"
+		"|  [ExpressionWithParenthesis]" [color=yellow shape=circle]
+		Expression -> "|  [ExpressionWithParenthesis]"
+		"|  [UnaryExpression]" [color=yellow shape=circle]
+		Expression -> "|  [UnaryExpression]"
+		"|  [DoublePointerExpression]" [color=yellow shape=circle]
+		Expression -> "|  [DoublePointerExpression]"
+		"|  [MultiplicationDivision]" [color=yellow shape=circle]
+		Expression -> "|  [MultiplicationDivision]"
+		"|  [PlusMinusExpression]" [color=yellow shape=circle]
+		Expression -> "|  [PlusMinusExpression]"
+		"|  [ShiftLeftShiftRight]" [color=yellow shape=circle]
+		Expression -> "|  [ShiftLeftShiftRight]"
+		"|  [AndExpression]" [color=yellow shape=circle]
+		Expression -> "|  [AndExpression]"
+		"|  [XorExpression]" [color=yellow shape=circle]
+		Expression -> "|  [XorExpression]"
+		"|  [OrExpression]" [color=yellow shape=circle]
+		Expression -> "|  [OrExpression]"
+		"|  [LessThanGreaterThan]" [color=yellow shape=circle]
+		Expression -> "|  [LessThanGreaterThan]"
+		"|  [BooleanEqualNotEqualExpression]" [color=yellow shape=circle]
+		Expression -> "|  [BooleanEqualNotEqualExpression]"
+		"|  [LogicalAndExpression]" [color=yellow shape=circle]
+		Expression -> "|  [LogicalAndExpression]"
+		"|  [LogicalOrExpression]" [color=yellow shape=circle]
+		Expression -> "|  [LogicalOrExpression]"
+		"|  [QuestionSelectExpression]" [color=yellow shape=circle]
+		Expression -> "|  [QuestionSelectExpression]"
+		"|  [AssignmentOptions]" [color=yellow shape=circle]
+		Expression -> "|  [AssignmentOptions]"
+		NewExpression [shape=circle]
+		"'new [TypeName]" [color=yellow shape=circle]
+		NewExpression -> "'new [TypeName]"
+		QuestionSelectExpression [shape=circle]
+		"[Expression] '? [Expression] ': [Expression]" [color=yellow shape=circle]
+		QuestionSelectExpression -> "[Expression] '? [Expression] '":" [Expression]"
+		LogicalAndExpression [shape=circle]
+		"[Expression] '&& [Expression]" [color=yellow shape=circle]
+		LogicalAndExpression -> "[Expression] '&& [Expression]"
+		OrExpression [shape=circle]
+		"[Expression] '| [Expression]" [color=yellow shape=circle]
+		OrExpression -> "[Expression] '| [Expression]"
+		XorExpression [shape=circle]
+		"[Expression] '^ [Expression]" [color=yellow shape=circle]
+		XorExpression -> "[Expression] '^ [Expression]"
+		AndExpression [shape=circle]
+		"[Expression] '& [Expression]" [color=yellow shape=circle]
+		AndExpression -> "[Expression] '& [Expression]"
+		LogicalOrExpression [shape=circle]
+		"[Expression] '|'| [Expression]" [color=yellow shape=circle]
+		LogicalOrExpression -> "[Expression] '|'| [Expression]"
+		ShiftLeftShiftRight [shape=circle]
+		"[Expression] [ShiftLeftShiftRightInternal] [Expression]" [color=yellow shape=circle]
+		ShiftLeftShiftRight -> "[Expression] [ShiftLeftShiftRightInternal] [Expression]"
+		ShiftLeftShiftRightInternal [shape=circle]
+		"'<< | '>>" [color=yellow shape=circle]
+		ShiftLeftShiftRightInternal -> "'<< | '>>"
+		PlusMinusExpression [shape=circle]
+		"[Expression] [PlusMinusInternal] [Expression]" [color=yellow shape=circle]
+		PlusMinusExpression -> "[Expression] [PlusMinusInternal] [Expression]"
+		PlusMinusInternal [shape=circle]
+		"'+ | '-" [color=yellow shape=circle]
+		PlusMinusInternal -> "'+ | '-"
+		MultiplicationDivision [shape=circle]
+		"[Expression] [MultiplcationDivisionInternal] [Expression]" [color=yellow shape=circle]
+		MultiplicationDivision -> "[Expression] [MultiplcationDivisionInternal] [Expression]"
+		MultiplcationDivisionInternal [shape=circle]
+		"'* | '/ | '%" [color=yellow shape=circle]
+		MultiplcationDivisionInternal -> "'* | '/ | '%"
+		DoublePointerExpression [shape=circle]
+		"[Expression] '** [Expression]" [color=yellow shape=circle]
+		DoublePointerExpression -> "[Expression] '** [Expression]"
+		UnaryExpression [shape=circle]
+		"[UnaryInternal] [Expression]" [color=yellow shape=circle]
+		UnaryExpression -> "[UnaryInternal] [Expression]"
+		UnaryInternal [shape=circle]
+		"'! | '~ | 'delete | '++ | '-- | '+ | '-" [color=yellow shape=circle]
+		UnaryInternal -> "'! | '~ | 'delete | '++ | '-- | '+ | '-"
+		LessThanGreaterThan [shape=circle]
+		"[Expression] [LessThanInternal] [Expression]" [color=yellow shape=circle]
+		LessThanGreaterThan -> "[Expression] [LessThanInternal] [Expression]"
+		LessThanInternal [shape=circle]
+		"'< | '> | '<= | '>=" [color=yellow shape=circle]
+		LessThanInternal -> "'< | '> | '<= | '>="
+		IndexAccess [shape=circle]
+		"[Expression]'[[opt Expression]']" [color=yellow shape=circle]
+		IndexAccess -> "[Expression]'[[opt Expression]']"
+		ExpressionWithParenthesis [shape=circle]
+		"'( [Expression] ')" [color=yellow shape=circle]
+		ExpressionWithParenthesis -> "'( [Expression] ')"
+		BooleanEqualNotEqualExpression [shape=circle]
+		"[Expression] [internalEqualNotEqual] [Expression]" [color=yellow shape=circle]
+		BooleanEqualNotEqualExpression -> "[Expression] [internalEqualNotEqual] [Expression]"
+		internalEqualNotEqual [shape=circle]
+		"'== | '!=" [color=yellow shape=circle]
+		internalEqualNotEqual -> "'== | '!="
+		MemberAccess [shape=circle]
+		"[Expression] '. [id]" [color=yellow shape=circle]
+		MemberAccess -> "[Expression] '. [id]"
+		post_inc_dec [shape=circle]
+		"'++|'--" [color=yellow shape=circle]
+		post_inc_dec -> "'++|'--"
+		ExpressionPostIncrement [shape=circle]
+		"[Expression][post_inc_dec]" [color=yellow shape=circle]
+		ExpressionPostIncrement -> "[Expression][post_inc_dec]"
+		AssignmentOptions [shape=circle]
+		"[Expression] [EqualExpressionInternal] [Expression]" [color=yellow shape=circle]
+		AssignmentOptions -> "[Expression] [EqualExpressionInternal] [Expression]"
+		EqualExpressionInternal [shape=circle]
+		"'= | '|= | '^= | '&= | '<<= | '>>= | '+= | '-= | '*= | '/= | '%=" [color=yellow shape=circle]
+		EqualExpressionInternal -> "'= | '|= | '^= | '&= | '<<= | '>>= | '+= | '-= | '*= | '/= | '%="
+		PrimaryExpression [shape=circle]
+		"[BooleanLiteral]" [color=yellow shape=circle]
+		PrimaryExpression -> "[BooleanLiteral]"
+		"|  [NumberLiteral]" [color=yellow shape=circle]
+		PrimaryExpression -> "|  [NumberLiteral]"
+		"|  [HexLiteral]" [color=yellow shape=circle]
+		PrimaryExpression -> "|  [HexLiteral]"
+		"|  [StringLiteral]" [color=yellow shape=circle]
+		PrimaryExpression -> "|  [StringLiteral]"
+		"|  [TupleExpression]" [color=yellow shape=circle]
+		PrimaryExpression -> "|  [TupleExpression]"
+		"|  [id]" [color=yellow shape=circle]
+		PrimaryExpression -> "|  [id]"
+		"|  [ElementaryTypeNameExpression]" [color=yellow shape=circle]
+		PrimaryExpression -> "|  [ElementaryTypeNameExpression]"
+		TupleExpression [shape=circle]
+		"'( [TupleElement,] ')" [color=yellow shape=circle]
+		TupleExpression -> "'( [TupleElement,] ')"
+		"|   '[ [TupleElement,+] ']" [color=yellow shape=circle]
+		TupleExpression -> "|   '[ [TupleElement,+] ']"
+		TupleElement [shape=circle]
+		"[Expression?]" [color=yellow shape=circle]
+		TupleElement -> "[Expression?]"
+		BooleanLiteral [shape=circle]
+		"'true | 'false" [color=yellow shape=circle]
+		BooleanLiteral -> "'true | 'false"
+		NumberLiteral [shape=circle]
+		"[NumberInternal] [opt NumberUnit]" [color=yellow shape=circle]
+		NumberLiteral -> "[NumberInternal] [opt NumberUnit]"
+		HexLiteral [shape=circle]
+		"'hex [StringLiteral]" [color=yellow shape=circle]
+		HexLiteral -> "'hex [StringLiteral]"
+		ElementaryTypeNameExpression [shape=circle]
+		"[ElementaryTypeName]" [color=yellow shape=circle]
+		ElementaryTypeNameExpression -> "[ElementaryTypeName]"
+		NumberUnit [shape=circle]
+		"'wei | 'szabo | 'finney | 'ether" [color=yellow shape=circle]
+		NumberUnit -> "'wei | 'szabo | 'finney | 'ether"
+		"|   'seconds | 'minutes | 'hours | 'days | 'weeks | 'years" [color=yellow shape=circle]
+		NumberUnit -> "|   'seconds | 'minutes | 'hours | 'days | 'weeks | 'years"
+		NumberInternal [shape=circle]
+		"[solidity_hex_number] | [number]" [color=yellow shape=circle]
+		NumberInternal -> "[solidity_hex_number] | [number]"
+		TypeName [shape=circle]
+		"[ElementaryTypeName]" [color=yellow shape=circle]
+		TypeName -> "[ElementaryTypeName]"
+		"|  [UserDefinedTypeName]" [color=yellow shape=circle]
+		TypeName -> "|  [UserDefinedTypeName]"
+		"|  [Mapping]" [color=yellow shape=circle]
+		TypeName -> "|  [Mapping]"
+		"|  [ArrayTypeName]" [color=yellow shape=circle]
+		TypeName -> "|  [ArrayTypeName]"
+		"|  [FunctionTypeName]" [color=yellow shape=circle]
+		TypeName -> "|  [FunctionTypeName]"
+		"|  [AddressPayable]" [color=yellow shape=circle]
+		TypeName -> "|  [AddressPayable]"
+		AddressPayable [shape=circle]
+		"'address 'payable" [color=yellow shape=circle]
+		AddressPayable -> "'address 'payable"
+		ElementaryTypeName [shape=circle]
+		"'address | 'bool | 'string | [Int] | [Uint] | [Byte] | [Fixed] | [Ufixed]" [color=yellow shape=circle]
+		ElementaryTypeName -> "'address | 'bool | 'string | [Int] | [Uint] | [Byte] | [Fixed] | [Ufixed]"
+		Mapping [shape=circle]
+		"'mapping '( [ElementaryTypeName] '=> [TypeName] ')" [color=yellow shape=circle]
+		Mapping -> "'mapping '( [ElementaryTypeName] '=> [TypeName] ')"
+		ArrayTypeName [shape=circle]
+		"[TypeName] '[ [opt Expression] ']" [color=yellow shape=circle]
+		ArrayTypeName -> "[TypeName] '[ [opt Expression] ']"
+		FunctionTypeName [shape=circle]
+		"'function [FunctionTypeParameterList] [FunctionExposure*] [opt FunctionReturn]" [color=yellow shape=circle]
+		FunctionTypeName -> "'function [FunctionTypeParameterList] [FunctionExposure*] [opt FunctionReturn]"
+		FunctionReturn [shape=circle]
+		"'returns [FunctionTypeParameterList]" [color=yellow shape=circle]
+		FunctionReturn -> "'returns [FunctionTypeParameterList]"
+		FunctionTypeParameterList [shape=circle]
+		"'( [FunctionTypeParameter,+] ')" [color=yellow shape=circle]
+		FunctionTypeParameterList -> "'( [FunctionTypeParameter,+] ')"
+		FunctionTypeParameter [shape=circle]
+		"[TypeName] [opt StorageLocation]" [color=yellow shape=circle]
+		FunctionTypeParameter -> "[TypeName] [opt StorageLocation]"
+		StorageLocation [shape=circle]
+		"'memory | 'storage | 'calldata" [color=yellow shape=circle]
+		StorageLocation -> "'memory | 'storage | 'calldata"
+		FunctionExposure [shape=circle]
+		"'internal | 'external | StateMutability" [color=yellow shape=circle]
+		FunctionExposure -> "'internal | 'external | StateMutability"
+		StateMutability [shape=circle]
+		"'pure | 'view | 'payable" [color=yellow shape=circle]
+		StateMutability -> "'pure | 'view | 'payable"
+		Int [shape=circle]
+		"'int | 'int8 | 'int16 | 'int24 | 'int32 | 'int40 | 'int48 | 'int56 | 'int64" [color=yellow shape=circle]
+		Int -> "'int | 'int8 | 'int16 | 'int24 | 'int32 | 'int40 | 'int48 | 'int56 | 'int64"
+		"|   'int72 | 'int80 | 'int88 | 'int96 | 'int104 | 'int112 | 'int120 | 'int128" [color=yellow shape=circle]
+		Int -> "|   'int72 | 'int80 | 'int88 | 'int96 | 'int104 | 'int112 | 'int120 | 'int128"
+		"|   'int136 | 'int144 | 'int152 | 'int160 | 'int168 | 'int176 | 'int184 | 'int192" [color=yellow shape=circle]
+		Int -> "|   'int136 | 'int144 | 'int152 | 'int160 | 'int168 | 'int176 | 'int184 | 'int192"
+		"|   'int200 | 'int208 | 'int216 | 'int224 | 'int232 | 'int240 | 'int248 | 'int256" [color=yellow shape=circle]
+		Int -> "|   'int200 | 'int208 | 'int216 | 'int224 | 'int232 | 'int240 | 'int248 | 'int256"
+		Uint [shape=circle]
+		"'uint | 'uint8 | 'uint16 | 'uint24 | 'uint32 | 'uint40 | 'uint48 | 'uint56 | 'uint64" [color=yellow shape=circle]
+		Uint -> "'uint | 'uint8 | 'uint16 | 'uint24 | 'uint32 | 'uint40 | 'uint48 | 'uint56 | 'uint64"
+		"|   'uint72 | 'uint80 | 'uint88 | 'uint96 | 'uint104 | 'uint112 | 'uint120 | 'uint128" [color=yellow shape=circle]
+		Uint -> "|   'uint72 | 'uint80 | 'uint88 | 'uint96 | 'uint104 | 'uint112 | 'uint120 | 'uint128"
+		"|   'uint136 | 'uint144 | 'uint152 | 'uint160 | 'uint168 | 'uint176 | 'uint184 | 'uint192" [color=yellow shape=circle]
+		Uint -> "|   'uint136 | 'uint144 | 'uint152 | 'uint160 | 'uint168 | 'uint176 | 'uint184 | 'uint192"
+		"|   'uint200 | 'uint208 | 'uint216 | 'uint224 | 'uint232 | 'uint240 | 'uint248 | 'uint256" [color=yellow shape=circle]
+		Uint -> "|   'uint200 | 'uint208 | 'uint216 | 'uint224 | 'uint232 | 'uint240 | 'uint248 | 'uint256"
+		Byte [shape=circle]
+		"'byte | 'bytes | 'bytes1 | 'bytes2 | 'bytes3 | 'bytes4 | 'bytes5 | 'bytes6 | 'bytes7 | 'bytes8" [color=yellow shape=circle]
+		Byte -> "'byte | 'bytes | 'bytes1 | 'bytes2 | 'bytes3 | 'bytes4 | 'bytes5 | 'bytes6 | 'bytes7 | 'bytes8"
+		"|   'bytes9 | 'bytes10 | 'bytes11 | 'bytes12 | 'bytes13 | 'bytes14 | 'bytes15 | 'bytes16" [color=yellow shape=circle]
+		Byte -> "|   'bytes9 | 'bytes10 | 'bytes11 | 'bytes12 | 'bytes13 | 'bytes14 | 'bytes15 | 'bytes16"
+		"|   'bytes17 | 'bytes18 | 'bytes19 | 'bytes20 | 'bytes21 | 'bytes22 | 'bytes23 | 'bytes24" [color=yellow shape=circle]
+		Byte -> "|   'bytes17 | 'bytes18 | 'bytes19 | 'bytes20 | 'bytes21 | 'bytes22 | 'bytes23 | 'bytes24"
+		"|   'bytes25 | 'bytes26 | 'bytes27 | 'bytes28 | 'bytes29 | 'bytes30 | 'bytes31 | 'bytes32" [color=yellow shape=circle]
+		Byte -> "|   'bytes25 | 'bytes26 | 'bytes27 | 'bytes28 | 'bytes29 | 'bytes30 | 'bytes31 | 'bytes32"
+		Fixed [shape=circle]
+		"'fixed |  'fixed [number+] 'x [number+]" [color=yellow shape=circle]
+		Fixed -> "'fixed |  'fixed [number+] 'x [number+]"
+		Ufixed [shape=circle]
+		"'ufixed' | 'ufixed [number+] 'x [number+]" [color=yellow shape=circle]
+		Ufixed -> "'ufixed' | 'ufixed [number+] 'x [number+]"
+		ContractBody [shape=circle]
+		"[StateVariableDeclaration] | [UsingForDeclaration]" [color=yellow shape=circle]
+		ContractBody -> "[StateVariableDeclaration] | [UsingForDeclaration]"
+		"|   [StructDefinition] | [ConstructorDefinition] | [ModifierDefinition] | [FunctionDefinition]" [color=yellow shape=circle]
+		ContractBody -> "|   [StructDefinition] | [ConstructorDefinition] | [ModifierDefinition] | [FunctionDefinition]"
+		"|   [EventDefinition] | [EnumDefinition]" [color=yellow shape=circle]
+		ContractBody -> "|   [EventDefinition] | [EnumDefinition]"
+		StateVariableDeclaration [shape=circle]
+		"[TypeName] [StateKeywords*] [id] [opt ExpressionWithEqualSign] '; [NL]" [color=yellow shape=circle]
+		StateVariableDeclaration -> "[TypeName] [StateKeywords*] [id] [opt ExpressionWithEqualSign] '; [NL]"
+		StateKeywords [shape=circle]
+		"'public | 'internal | 'private | 'constant" [color=yellow shape=circle]
+		StateKeywords -> "'public | 'internal | 'private | 'constant"
+		UsingForDeclaration [shape=circle]
+		"'using [id] 'for [StericTypeName] '; [NL]" [color=yellow shape=circle]
+		UsingForDeclaration -> "'using [id] 'for [StericTypeName] '; [NL]"
+		StericTypeName [shape=circle]
+		"'* | [TypeName]" [color=yellow shape=circle]
+		StericTypeName -> "'* | [TypeName]"
+		StructDefinition [shape=circle]
+		"'struct [id]" [color=yellow shape=circle]
+		StructDefinition -> "'struct [id]"
+		"'{ [NL] [IN]" [color=yellow shape=circle]
+		StructDefinition -> "'{ [NL] [IN]"
+		"[VariableDeclarationMeta+] [EX]" [color=yellow shape=circle]
+		StructDefinition -> "[VariableDeclarationMeta+] [EX]"
+		"'} [NL]" [color=yellow shape=circle]
+		StructDefinition -> "'} [NL]"
+		ConstructorDefinition [shape=circle]
+		"'constructor [ParameterList] [FunctionalDefinitionInternalModifiers*] [Block]" [color=yellow shape=circle]
+		ConstructorDefinition -> "'constructor [ParameterList] [FunctionalDefinitionInternalModifiers*] [Block]"
+		VariableDeclarationMeta [shape=circle]
+		"[VariableDeclaration] '; [NL]" [color=yellow shape=circle]
+		VariableDeclarationMeta -> "[VariableDeclaration] '; [NL]"
+		VariableDeclaration [shape=circle]
+		"[TypeName] [opt StorageLocation] [id]" [color=yellow shape=circle]
+		VariableDeclaration -> "[TypeName] [opt StorageLocation] [id]"
+		ModifierDefinition [shape=circle]
+		"'modifier [id] [opt ParameterList] [Block]" [color=yellow shape=circle]
+		ModifierDefinition -> "'modifier [id] [opt ParameterList] [Block]"
+		FunctionDefinition [shape=circle]
+		"'function [opt id] [ParameterList]" [color=yellow shape=circle]
+		FunctionDefinition -> "'function [opt id] [ParameterList]"
+		"[FunctionalDefinitionInternalModifiers*]" [color=yellow shape=circle]
+		FunctionDefinition -> "[FunctionalDefinitionInternalModifiers*]"
+		"[opt OptionalReturnBlock] [FunctionInternalEndBlock]" [color=yellow shape=circle]
+		FunctionDefinition -> "[opt OptionalReturnBlock] [FunctionInternalEndBlock]"
+		FunctionInternalEndBlock [shape=circle]
+		"'; [NL] | [Block]" [color=yellow shape=circle]
+		FunctionInternalEndBlock -> "'; [NL] | [Block]"
+		OptionalReturnBlock [shape=circle]
+		"'returns [ParameterList]" [color=yellow shape=circle]
+		OptionalReturnBlock -> "'returns [ParameterList]"
+		FunctionalDefinitionInternalModifiers [shape=circle]
+		"[ModifierInvocation] | [StateMutability] | 'external | 'public | 'internal | 'private" [color=yellow shape=circle]
+		FunctionalDefinitionInternalModifiers -> "[ModifierInvocation] | [StateMutability] | 'external | 'public | 'internal | 'private"
+		EventDefinition [shape=circle]
+		"'event [id] [EventParameterList] [opt 'anonymous] '; [NL]" [color=yellow shape=circle]
+		EventDefinition -> "'event [id] [EventParameterList] [opt 'anonymous] '; [NL]"
+		EventParameterList [shape=circle]
+		"'( [EventParameter,] ')" [color=yellow shape=circle]
+		EventParameterList -> "'( [EventParameter,] ')"
+		EventParameter [shape=circle]
+		"[TypedEventParameter?]" [color=yellow shape=circle]
+		EventParameter -> "[TypedEventParameter?]"
+		TypedEventParameter [shape=circle]
+		"[TypeName] [opt 'indexed] [opt id]" [color=yellow shape=circle]
+		TypedEventParameter -> "[TypeName] [opt 'indexed] [opt id]"
+		EnumDefinition [shape=circle]
+		"'enum [id] '{ [opt CommaSeparatedEnumValues] '}" [color=yellow shape=circle]
+		EnumDefinition -> "'enum [id] '{ [opt CommaSeparatedEnumValues] '}"
+		CommaSeparatedEnumValues [shape=circle]
+		"[EnumValue,+]" [color=yellow shape=circle]
+		CommaSeparatedEnumValues -> "[EnumValue,+]"
+		EnumValue [shape=circle]
+		"[id]" [color=yellow shape=circle]
+		EnumValue -> "[id]"
+		ModifierInvocation [shape=circle]
+		"[id] [opt OptionalModifierInvocation]" [color=yellow shape=circle]
+		ModifierInvocation -> "[id] [opt OptionalModifierInvocation]"
+		OptionalModifierInvocation [shape=circle]
+		"'( [opt ExpressionList] ')" [color=yellow shape=circle]
+		OptionalModifierInvocation -> "'( [opt ExpressionList] ')"
+		ParameterList [shape=circle]
+		"'( [Parameter,] ')" [color=yellow shape=circle]
+		ParameterList -> "'( [Parameter,] ')"
+		Parameter [shape=circle]
+		"[TypedParameter?]" [color=yellow shape=circle]
+		Parameter -> "[TypedParameter?]"
+		TypedParameter [shape=circle]
+		"[TypeName] [opt StorageLocation] [opt id]" [color=yellow shape=circle]
+		TypedParameter -> "[TypeName] [opt StorageLocation] [opt id]"
+		Block [shape=circle]
+		"'{  [NL][IN]" [color=yellow shape=circle]
+		Block -> "'{  [NL][IN]"
+		"[Statement*] [EX]" [color=yellow shape=circle]
+		Block -> "[Statement*] [EX]"
+		"'} [NL]" [color=yellow shape=circle]
+		Block -> "'} [NL]"
+		Statement [shape=circle]
+		"[IfStatement] | [WhileStatement] | [ForStatement] | [Block] | [InlineAssemblyStatement]" [color=yellow shape=circle]
+		Statement -> "[IfStatement] | [WhileStatement] | [ForStatement] | [Block] | [InlineAssemblyStatement]"
+		"|   [CombineSemicolon]" [color=yellow shape=circle]
+		Statement -> "|   [CombineSemicolon]"
+		CombineSemicolon [shape=circle]
+		"[StatementThatNeedSemicolon] '; [NL]" [color=yellow shape=circle]
+		CombineSemicolon -> "[StatementThatNeedSemicolon] '; [NL]"
+		StatementThatNeedSemicolon [shape=circle]
+		"[Require] | [DoWhileStatement] | [PlaceholderStatement] | [Continue] | [Break]" [color=yellow shape=circle]
+		StatementThatNeedSemicolon -> "[Require] | [DoWhileStatement] | [PlaceholderStatement] | [Continue] | [Break]"
+		"|   [Return] | [EmitStatement] | [SimpleStatement] | [Throw]" [color=yellow shape=circle]
+		StatementThatNeedSemicolon -> "|   [Return] | [EmitStatement] | [SimpleStatement] | [Throw]"
+		IfStatement [shape=circle]
+		"'if '( [Expression] ') [Statement] [opt ElseStatement]" [color=yellow shape=circle]
+		IfStatement -> "'if '( [Expression] ') [Statement] [opt ElseStatement]"
+		ElseStatement [shape=circle]
+		"'else [Statement]" [color=yellow shape=circle]
+		ElseStatement -> "'else [Statement]"
+		WhileStatement [shape=circle]
+		"'while '( [Expression] ') [Statement]" [color=yellow shape=circle]
+		WhileStatement -> "'while '( [Expression] ') [Statement]"
+		ForStatement [shape=circle]
+		"'for '( [opt SimpleStatement] '; [opt Expression] '; [opt ExpressionStatement] ') [Statement]" [color=yellow shape=circle]
+		ForStatement -> "'for '( [opt SimpleStatement] '; [opt Expression] '; [opt ExpressionStatement] ') [Statement]"
+		SimpleStatement [shape=circle]
+		"[VariableDefinition] | [ExpressionStatement]" [color=yellow shape=circle]
+		SimpleStatement -> "[VariableDefinition] | [ExpressionStatement]"
+		VariableDefinition [shape=circle]
+		"[InternatlVariableDefinition] [opt ExpressionWithEqualSign]" [color=yellow shape=circle]
+		VariableDefinition -> "[InternatlVariableDefinition] [opt ExpressionWithEqualSign]"
+		ExpressionWithEqualSign [shape=circle]
+		"'= [Expression]" [color=yellow shape=circle]
+		ExpressionWithEqualSign -> "'= [Expression]"
+		InternatlVariableDefinition [shape=circle]
+		"[VariableDeclaration] | [VariableDeclarationWithParenthesis]" [color=yellow shape=circle]
+		InternatlVariableDefinition -> "[VariableDeclaration] | [VariableDeclarationWithParenthesis]"
+		VariableDeclarationWithParenthesis [shape=circle]
+		"'( [OptVariableDeclaration,]  ')" [color=yellow shape=circle]
+		VariableDeclarationWithParenthesis -> "'( [OptVariableDeclaration,]  ')"
+		OptVariableDeclaration [shape=circle]
+		"[VariableDeclaration?]" [color=yellow shape=circle]
+		OptVariableDeclaration -> "[VariableDeclaration?]"
+		ExpressionStatement [shape=circle]
+		"[Expression]" [color=yellow shape=circle]
+		ExpressionStatement -> "[Expression]"
+		DoWhileStatement [shape=circle]
+		"'do [Statement] 'while '( [Expression] ')" [color=yellow shape=circle]
+		DoWhileStatement -> "'do [Statement] 'while '( [Expression] ')"
+		InlineAssemblyStatement [shape=circle]
+		"'assembly [opt StringLiteral] [AssemblyBlock]" [color=yellow shape=circle]
+		InlineAssemblyStatement -> "'assembly [opt StringLiteral] [AssemblyBlock]"
+		PlaceholderStatement [shape=circle]
+		"'_" [color=yellow shape=circle]
+		PlaceholderStatement -> "'_"
+		Continue [shape=circle]
+		"'continue" [color=yellow shape=circle]
+		Continue -> "'continue"
+		Break [shape=circle]
+		"'break" [color=yellow shape=circle]
+		Break -> "'break"
+		Require [shape=circle]
+		"'require [Expression]" [color=yellow shape=circle]
+		Require -> "'require [Expression]"
+		Return [shape=circle]
+		"'return [opt Expression]" [color=yellow shape=circle]
+		Return -> "'return [opt Expression]"
+		Throw [shape=circle]
+		"'throw" [color=yellow shape=circle]
+		Throw -> "'throw"
+		EmitStatement [shape=circle]
+		"'emit [opt FunctionCall]" [color=yellow shape=circle]
+		EmitStatement -> "'emit [opt FunctionCall]"
+		FunctionCall [shape=circle]
+		"[Expression] '( [FunctionCallArguments] ')" [color=yellow shape=circle]
+		FunctionCall -> "[Expression] '( [FunctionCallArguments] ')"
+		FunctionCallArguments [shape=circle]
+		"[NamedValueWithBraces] | [opt ExpressionList]" [color=yellow shape=circle]
+		FunctionCallArguments -> "[NamedValueWithBraces] | [opt ExpressionList]"
+		NamedValueWithBraces [shape=circle]
+		"'{ [opt NameValueList] '}" [color=yellow shape=circle]
+		NamedValueWithBraces -> "'{ [opt NameValueList] '}"
+		NameValueList [shape=circle]
+		"[InlineNamedValue,+]" [color=yellow shape=circle]
+		NameValueList -> "[InlineNamedValue,+]"
+		InlineNamedValue [shape=circle]
+		"[id] ': [Expression]" [color=yellow shape=circle]
+		InlineNamedValue -> "[id] '":" [Expression]"
+		ExpressionList [shape=circle]
+		"[Expression,+]" [color=yellow shape=circle]
+		ExpressionList -> "[Expression,+]"
+		AssemblyBlock [shape=circle]
+		"'{ [NL] [IN]" [color=yellow shape=circle]
+		AssemblyBlock -> "'{ [NL] [IN]"
+		"[AssemblyStatement*] [EX]" [color=yellow shape=circle]
+		AssemblyBlock -> "[AssemblyStatement*] [EX]"
+		"'} [NL]" [color=yellow shape=circle]
+		AssemblyBlock -> "'} [NL]"
+		AssemblyStatement [shape=circle]
+		"[AssemblyFunctionDefinition]" [color=yellow shape=circle]
+		AssemblyStatement -> "[AssemblyFunctionDefinition]"
+		"|  [AssemblyVariableDeclaration] [NL]" [color=yellow shape=circle]
+		AssemblyStatement -> "|  [AssemblyVariableDeclaration] [NL]"
+		"|  [AssemblyAssignment] [NL]" [color=yellow shape=circle]
+		AssemblyStatement -> "|  [AssemblyAssignment] [NL]"
+		"|  [AssemblyIf]" [color=yellow shape=circle]
+		AssemblyStatement -> "|  [AssemblyIf]"
+		"|  [AssemblyFunctionCall] [NL]" [color=yellow shape=circle]
+		AssemblyStatement -> "|  [AssemblyFunctionCall] [NL]"
+		"|  [AssemblySwitch]" [color=yellow shape=circle]
+		AssemblyStatement -> "|  [AssemblySwitch]"
+		"|  [AssemblyForLoop]" [color=yellow shape=circle]
+		AssemblyStatement -> "|  [AssemblyForLoop]"
+		"|  [AssemblyBreakContinue] | [AssemblyBlock]" [color=yellow shape=circle]
+		AssemblyStatement -> "|  [AssemblyBreakContinue] | [AssemblyBlock]"
+		AssemblyFunctionDefinition [shape=circle]
+		"'function [id] '( [opt AssemblyIdentifierList] ')" [color=yellow shape=circle]
+		AssemblyFunctionDefinition -> "'function [id] '( [opt AssemblyIdentifierList] ')"
+		"[opt OptionlInlineAssembly] [AssemblyBlock]" [color=yellow shape=circle]
+		AssemblyFunctionDefinition -> "[opt OptionlInlineAssembly] [AssemblyBlock]"
+		OptionlInlineAssembly [shape=circle]
+		"'-> [AssemblyIdentifierList]" [color=yellow shape=circle]
+		OptionlInlineAssembly -> "'-> [AssemblyIdentifierList]"
+		AssemblyVariableDeclaration [shape=circle]
+		"'let [AssemblyIdentifierList] [opt OptionalAssemblyVaribale]" [color=yellow shape=circle]
+		AssemblyVariableDeclaration -> "'let [AssemblyIdentifierList] [opt OptionalAssemblyVaribale]"
+		OptionalAssemblyVaribale [shape=circle]
+		"':= [AssemblyExpression]" [color=yellow shape=circle]
+		OptionalAssemblyVaribale -> "'":"= [AssemblyExpression]"
+		AssemblyAssignment [shape=circle]
+		"[AssemblyIdentifierList] ':= [AssemblyExpression]" [color=yellow shape=circle]
+		AssemblyAssignment -> "[AssemblyIdentifierList] '":"= [AssemblyExpression]"
+		AssemblyExpression [shape=circle]
+		"[AssemblyFunctionCall] | [id] | [Literal]" [color=yellow shape=circle]
+		AssemblyExpression -> "[AssemblyFunctionCall] | [id] | [Literal]"
+		AssemblyIf [shape=circle]
+		"'if [AssemblyIfConditions] [AssemblyBlock]" [color=yellow shape=circle]
+		AssemblyIf -> "'if [AssemblyIfConditions] [AssemblyBlock]"
+		AssemblyIfConditions [shape=circle]
+		"[id] | [Literal]" [color=yellow shape=circle]
+		AssemblyIfConditions -> "[id] | [Literal]"
+		AssemblySwitch [shape=circle]
+		"'switch [AssemblySwitchConditions] [NL] [InlineAssemblySwitch]" [color=yellow shape=circle]
+		AssemblySwitch -> "'switch [AssemblySwitchConditions] [NL] [InlineAssemblySwitch]"
+		AssemblySwitchConditions [shape=circle]
+		"[id] | [Literal]" [color=yellow shape=circle]
+		AssemblySwitchConditions -> "[id] | [Literal]"
+		InlineAssemblySwitch [shape=circle]
+		"[InlineInlineAssemblySwitch] | [AssemblyDefault]" [color=yellow shape=circle]
+		InlineAssemblySwitch -> "[InlineInlineAssemblySwitch] | [AssemblyDefault]"
+		InlineInlineAssemblySwitch [shape=circle]
+		"[AssemblyCase+] [opt AssemblyDefault]" [color=yellow shape=circle]
+		InlineInlineAssemblySwitch -> "[AssemblyCase+] [opt AssemblyDefault]"
+		AssemblyCase [shape=circle]
+		"'case [Literal] [AssemblyBlock]" [color=yellow shape=circle]
+		AssemblyCase -> "'case [Literal] [AssemblyBlock]"
+		AssemblyDefault [shape=circle]
+		"'default [AssemblyBlock]" [color=yellow shape=circle]
+		AssemblyDefault -> "'default [AssemblyBlock]"
+		AssemblyForLoop [shape=circle]
+		"'for [AssemblyBlock] [AssemblyExpression] [AssemblyBlock] [AssemblyBlock]" [color=yellow shape=circle]
+		AssemblyForLoop -> "'for [AssemblyBlock] [AssemblyExpression] [AssemblyBlock] [AssemblyBlock]"
+		AssemblyBreakContinue [shape=circle]
+		"'break | 'continue" [color=yellow shape=circle]
+		AssemblyBreakContinue -> "'break | 'continue"
+		AssemblyFunctionCall [shape=circle]
+		"[id]'( [opt InlineOptinonalAssemblyFunctionCall] ')" [color=yellow shape=circle]
+		AssemblyFunctionCall -> "[id]'( [opt InlineOptinonalAssemblyFunctionCall] ')"
+		InlineOptinonalAssemblyFunctionCall [shape=circle]
+		"[AssemblyExpression,+]" [color=yellow shape=circle]
+		InlineOptinonalAssemblyFunctionCall -> "[AssemblyExpression,+]"
+		AssemblyIdentifierList [shape=circle]
+		"[id,+]" [color=yellow shape=circle]
+		AssemblyIdentifierList -> "[id,+]"
+		StringLiteral [shape=circle]
+		"[stringlit]" [color=yellow shape=circle]
+		StringLiteral -> "[stringlit]"
+		"|   [charlit]" [color=yellow shape=circle]
+		StringLiteral -> "|   [charlit]"
+		Literal [shape=circle]
+		"[NumberLiteral]" [color=yellow shape=circle]
+		Literal -> "[NumberLiteral]"
+		"|   [HexLiteral]" [color=yellow shape=circle]
+		Literal -> "|   [HexLiteral]"
+		"|   [StringLiteral]" [color=yellow shape=circle]
+		Literal -> "|   [StringLiteral]"
+		label=Grammar
+	}
+	subgraph cluster_1 {
+		node [color=white style=filled]
+		color=lightgrey rankdir=LR style=filled
+		Start [shape=circle]
+		Start -> Transformation
+		label="Transformation Phase"
+	}
+	subgraph cat {
+		color=red rankdir=TB style=filled
+		Parsing [shape=doublecircle]
+		Parsing -> Start
+		Transformation [shape=doublecircle]
+		Transformation -> "Sta  rt"
+		Parsing -> Transformation
+		label=Categories
+	}
+}
